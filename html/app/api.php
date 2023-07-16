@@ -22,7 +22,7 @@ try {
     $db = new PDO($dsn, 'root', 'rookt');
     $sql = 'INSERT INTO answers (answer) VALUES (:answer)';
     $stmt = $db->prepare($sql);
-    $params = array(':answer' => date('Y-m-d H:i:s')."->".$jsonArray['answer']);
+    $params = array(':answer' => $json);
     $stmt->execute($params);
 } catch (PDOException $e) {
     echo $e->getMessage();
